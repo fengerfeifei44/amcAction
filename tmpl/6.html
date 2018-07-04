@@ -1,0 +1,109 @@
+
+<section ng-controller="conCtrl">
+    <div class="con_title">
+        <span class="left"><a href="#!/person">重新开始</a></span>
+        <span class="right">问诊编号<br>{{abbr}}</span>
+    </div>
+   <div class="top ">
+       <div class="title result">
+           <h1>问诊提示及系统建议</h1>
+
+           <!--<p>问诊编号：000000</p>-->
+       </div>
+
+       <div class="detail" ng-repeat="(key,v) in visitEntitys">
+           <h4 ng-if="key==0">{{v.visit}}</h4>
+           <div class="conclusion" ng-repeat="con in v.conclusions">
+               <h5><img src="image/tubiao.png" alt="">{{con.conclusionTitle}}</h5>
+              <div class="wrap_p">
+                  <p>{{con.conclusionText}}
+                  </p>
+
+              </div>
+              <!-- <h6>在等待看医生时，遵循以下建议：</h6>-->
+               <ul>
+                   <li class="clear" ng-repeat="item in con.conclusionItems">
+                       <span class="circle"></span><span class="right">{{item}}</span>
+                   </li>
+
+               </ul>
+               <p class="blue">{{con.suggestDepartment}}</p>
+           </div>
+           <!--<div class="conclusion ">
+               <h5 class="green"><img src="../image/tubiao.png" alt="">首次或最严重的头痛</h5>
+               <div class="wrap_p">
+                   <p>由于这是你第一次头痛或所经历过的最严重的一次头痛，所以一定要进行医学评估找出病因。大多数头痛不是严重疾病引起的，但保险起见最好去看医生，听听他们的建议。
+                   </p>
+
+
+               </div>
+               <h6> 在等待与医生联系时，遵循以下建议：</h6>
+               <ul>
+                   <li class="clear">
+                       <span class="circle"></span><span class="right">用热水袋或温度调到最低档的电热垫。洗个热水澡也有助于缓解症状。</span>
+                   </li>
+                   <li  class="clear">
+                       <span class="circle"></span><span  class="right">冷敷或用裹上毛巾的冰袋敷10～15分钟，每天数次。不要把冰直接放在皮肤上，这样做会伤害皮肤。</span>
+                   </li>
+                   <li  class="clear">
+                       <span class="circle"></span><span  class="right">试一试放松技巧，例如洗温水澡、轻轻按摩头皮、颈部和肩膀。</span>
+                   </li>
+                   <li  class="clear">
+                       <span class="circle"></span><span  class="right">服用非处方镇痛药缓解不适。仔细阅读说明书，按照正确的剂量和注意事项用药。</span>
+                   </li>
+                   <li  class="clear">
+                       <span class="circle"></span><span  class="right">如果注意到颈部僵直或疼痛，皮肤上出现用玻璃杯按压不褪色的紫色点状皮疹，以及对光敏感、剧烈头痛或特别嗜睡，请去当地急诊室就诊。</span>
+                   </li>
+                   <li  class="clear">
+                       <span class="circle"></span><span  class="right">如果症状持续或加重，或者出现新的症状，请联系医生或护士热线获得进一步的建议。</span>
+                   </li>
+               </ul>
+               <p class="blue">建议就诊科室：全科医疗科,神经内科专业</p>
+
+           </div>-->
+
+       </div>
+   </div>
+
+    <div class="version_wrap">
+        <div class="version">
+            <div class="ver_group clear"><img src="image/ver-1.bmp" alt=""><p><span>颈动脉疾病</span> <br> <span>降低卒中风险</span></p></div>
+            <div style="border-bottom: 1px solid #fb8a3e;margin: 0.5rem 0"></div>
+            <div class="ver_group clear"><p><span>解热镇痛药</span> <br> <span>你吃对了吗？</span></p><img src="image/ver-2.jpg" alt=""></div>
+
+        </div>
+       <!-- <div class="version"></div>-->
+    </div>
+
+    <div class="divider"></div>
+   <div class="lower">
+        <div class="editor">
+           <p>每每健康屋</p>
+           <p>惠每医疗旗下健康管理平台。</p>
+            <p>集智能问诊、健康评估、患者教育于一体的线上线下一体化互动平台。</p>
+            <p>咨询电话：400-000-0000</p>
+        </div>
+
+        <div class="logo">
+            <img src="image/IMIS_V.png" alt="惠每智能问诊系统">
+        </div>
+        <p class="page">
+            本页健康信息供个人管理健康使用，仅供个人、非商业用途。本页面信息不得视为或等同于医疗建议、诊断或治疗。惠每智能问诊系统服务并不代表医学实践、护理或其他医疗健康建议、诊断或治疗。
+        </p>
+        <p class="property">© 2016 惠每医疗.版权所有.京ICP备16039627号-2</p>
+    </div>
+</section>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery.md5.js"></script>
+<script>
+    //去除页面<br>
+    $(function () {
+        var $p=$(".wrap_p p");
+        $.each($p,function (index,ele) {
+            var value=$(ele).html();
+            value=value.replace(/<[^>]+>/g,"<span></span>");
+            $(ele).html(value);
+        })
+    })
+
+</script>

@@ -1,0 +1,391 @@
+body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, table, hr, main, form {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font:0.24rem  'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+    font-weight: 500;
+}
+
+i, em {
+    font-style: normal;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+img {
+    vertical-align: top;
+    border: none;
+}
+img, input, select, textarea {
+    vertical-align: middle;
+    outline: none;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+.clear {
+    zoom: 1;
+}
+.clear:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+/*以上为重置样式*/
+body{
+
+    background: #fff;
+}
+.wrap{
+    padding: 0.2rem;
+
+}
+/*问题页*/
+.wrap .main{
+    margin-top: 0.3rem;
+    padding: 0.3rem;
+    min-height: 4rem;
+    background: #fff;
+    border: 1px solid #ececec;
+
+}
+.con_title{
+    padding: 0.4rem;
+}
+.con_title>.left{
+    font-size: 0.34rem;
+    color: #fff;
+    position: relative;
+    top:0.15rem;
+    border-radius: 0.1rem;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.2);
+    background: #ff812c;
+    padding: 0.1rem;
+}
+.con_title>.left a{
+    color: #fff;
+}
+.con_title>.right{
+    float: right;
+    color: #ff812c;
+    border: 1px solid #ff812c;
+    font-size: 0.20rem;
+    border-radius: 0.1rem;
+    padding: 0.1rem 0.1rem;
+    text-align: center;
+}
+.que_top{
+    margin-top: 0.8rem;
+    font-size: 0.24rem;
+    color: #797979;
+}
+.que_top .explain{
+    color: red;
+}
+/*.que_top .circle{
+    display: inline-block;
+    margin-right: 0.24rem;
+    width: 0.12rem;
+    height: 0.12rem;
+    border-radius: 50%;
+    background: #78aa00;
+
+}*/
+.que_top .list li{
+    margin-top: 0.16rem;
+}
+ .que_bottom{
+    margin-top: 0.2rem
+}
+.que_bottom .question{
+    position: relative;
+    font-size: 0.3rem;
+    color: #333;
+    margin-bottom: 0.4rem
+}
+.que_bottom .input_wrap{
+    position: relative;
+}
+.que_bottom .wrap_i{
+    display: none;
+    padding:0.2rem 0.3rem 0.3rem;
+    position: absolute;
+    background: #fff;
+    z-index: 2;
+    border-radius: 0.1rem;
+    font-size: 0.26rem;
+    line-height: 0.36rem;
+}
+.que_bottom .wrap_i .close{
+    display: block;
+    width: 0.42rem;
+    height: 0.42rem;
+    float: right;
+    color: #ff812c;
+    background: url("../image/close.png") no-repeat ;
+    background-size: 0.42rem 0.42rem;
+}
+.que_bottom img{
+    padding-left: 0.15rem;
+    height: 0.28rem;
+}
+.que_bottom input[type=radio],.que_bottom input[type=checkbox]{
+    display: none;
+}
+.que_bottom input[type=text]{
+    padding: 0 0.1rem;
+    width: 1.5rem;
+    height: 0.5rem;
+    border-radius: 0.1rem;
+    outline: none;
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    margin-right: 0.2rem;
+}
+.que_bottom .text_wrap p{
+    margin-bottom: 0.3rem;
+}
+.que_bottom .text_wrap textarea{
+    box-sizing: border-box;
+    width: 100%;
+    height: 3rem;
+    border: 1px solid #ccc;
+    padding: 0.2rem;
+    -webkit-appearance: none;
+}
+.que_bottom label{
+    position: relative;
+    margin-bottom: 0.1rem;
+    font-size: 0.28rem;
+    padding-left: 0.52rem;
+    line-height: 0.6rem;
+    display: inline-block;
+    color: #666;
+    background-size: 0.24rem 0.24rem;
+    margin-right: 0.2rem;
+}
+/*.que_bottom label img{
+    position: absolute;
+    top:0.15rem;
+    left: 0.52rem;
+}*/
+
+.que_bottom input[type=radio]+label{
+    background: url("../image/form_radio.png") no-repeat 0 0.16rem;
+}
+.que_bottom input[type=radio]+label.on{
+    background: url("../image/form_radio_on.png") no-repeat 0 0.16rem;
+    color: #333;
+}
+.que_bottom input[type=checkbox]+label{
+    background: url("../image/form_checkbox.png") no-repeat 0 0.16rem;
+}
+.que_bottom input[type=checkbox]+label.on{
+    color: #333;
+    background: url("../image/form_checkbox_on.png") no-repeat 0 0.16rem;
+}
+
+.btnN{
+    margin: 0.3rem;
+    font-size: 0.26rem;
+
+}
+.btnN span{
+    border: 1px solid #fb8a3e;
+    border-radius: 5px;
+    padding: 0.1rem 0.5rem;
+    color: #fff;
+
+}
+.btnN .left{
+    float: left;
+}
+.btnN .right{
+    float: right;
+}
+.advertising img{
+    margin-top:0.8rem;
+    width: 100%
+}
+/*小i相关*/
+#mask_i{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    z-index: 1;
+}
+/*选择本人页*/
+.selec_self{
+    padding: 0.4rem;
+}
+.selec_self p{
+    font-size: 0.34rem;
+}
+.selec_self a{
+    display: block;
+    margin: 0.6rem 0rem 0 0;
+    border-radius: 0.3rem;
+    padding: 0.18rem;
+   text-align: center;
+    border: 1px solid #fb8a3e;
+}
+/*性别页*/
+.question.sex{
+    margin-top: 0.5rem;
+}
+.que_bottom input[type=date]{
+    width: 40%;
+    height: 0.4rem;
+    margin-bottom: 0.2rem;
+    padding: 0.1rem;
+    border: 1px solid #ccc;
+    border-radius:0.1rem ;
+    -webkit-appearance: none;
+    font-size: 0.28rem;
+    color: #666;
+}
+.sureBtn{
+
+    display: block;
+    margin: 0.5rem 1.2rem;
+    border-radius: 0.3rem;
+    text-align: center;
+    border: 1px solid #fb8a3e;
+    line-height: 0.7rem;
+    color: #fb8a3e;
+    font-size: 0.32rem;
+
+}
+/*症状页*/
+.search{
+    margin-bottom: 0.8rem;
+    /*border-bottom: 1px solid rgba(57,103,193,.3);*/
+}
+.search .sea_one{
+    font-size: 0.3rem ;
+    line-height: 0.66rem;
+    color: #333;
+    margin-bottom: 0.2rem;
+}
+.search .tip{
+    display: none;
+    margin-bottom: 0.2rem;
+    color: #fb8a3e;
+    font-size: 0.28rem;
+}
+.search input{
+    outline: none;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 0.1rem 0.1rem;
+    box-sizing: border-box;
+    width: 80%;
+    line-height: 0.4rem;
+    float: left;
+    font-size: 0.28rem;
+    color: #333;
+    -webkit-appearance: none;
+}
+.search .sea_inp a{
+    float: right;
+    border: 1px solid #fb8a3e;
+    border-radius: 5px;
+    width: 10%;
+    color: #fb8a3e;
+    line-height: 0.6rem;
+    padding: 0 0.2rem;
+    text-align: center;
+}
+#search_page .content .select{
+    font-size: 0.3rem;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 0.1rem 0;
+}
+#search_page .content .select>span{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid #dcdcdc;
+    padding: 0.1rem;
+}
+#search_page .content .select .on{
+    position: relative;
+    top:1px;
+    font-family: "Microsoft YaHei";
+    padding: 0.2rem 0.2rem 0.1rem 0.2rem;
+    color: #fb8a3e;
+    font-weight: 100;
+    border: 1px solid #fb8a3e;
+    border-bottom:3px solid #fff;
+}
+#search_page .content .sym{
+    padding-top: 0.3rem;
+}
+#search_page .content .sym.sym_all{
+    display: none;
+}
+#search_page .content .sym a{
+    float: left;
+    display: block;
+    width: 50%;
+    color: #797979;
+    padding: 0.15rem 0;
+    font-size: 0.28rem;
+}
+#search_page .copyright{
+    position: fixed;
+    left: 0;
+    bottom: 1rem;
+    width: 100%;
+    text-align: center;
+}
+#search_page .searchWrap{
+    margin: 0.4rem;
+}
+/*症状搜索*/
+.list{
+   /* display: none;*/
+    margin-top: 0.5rem;
+}
+.list.on{
+    margin-top: -0.5rem;
+    display: block;
+}
+.list .li{
+    display: none;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 0.3rem 0.1rem 0.1rem 0;
+    color: #666;
+    font-size: 0.28rem;
+}
+.list .li i{
+    font-size: 0.24rem;
+    color: #afafaf;
+}
+
+.list .li.on{
+    display: block;
+}
+/*.list li i{
+    float: right;
+    width: 0.24rem;
+    height: 0.24rem;
+    background: url("../image/arrow1.png") no-repeat;
+    background-size: 0.24rem;
+}*/
+
+
+

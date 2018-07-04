@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>惠每智能问诊系统</title>
+    <link rel="stylesheet" href="../css/css.css">
+    <script src="../js/public.js"></script>
+</head>
+<body>
+<div id="mask_i"></div>
+<div class="wrap">
+
+    <div class="con_title">
+            <a class="left">重新开始</a>
+
+
+    </div>
+    <div class="main">
+
+        <div class="que_bottom" >
+            <div class="question">
+
+                    请问患者是男性还是女性？</div>
+
+            <input type="radio" id="boy1" name="sex">
+            <!--<p class="label">--><label for="boy1">
+                男性
+            </label><!--</p>-->
+
+            <input type="radio" id="boy" name="sex">
+          <!--  <p class="label">--><label for="boy" >
+                女性
+            </label><!--</p>-->
+            <div class="question sex">
+                请问患者的生日是哪天？</div>
+            <input type="date">
+        </div>
+
+    </div>
+    <a href="" class="sureBtn">确定</a>
+
+</div>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+    $('input:checked').next('label').addClass('on');
+    $(document.body).on('click', function(){
+        $('body').find('input[type=radio]').each(function(i){
+            if($(this).prop('checked')){
+                $(this).next().addClass("on")
+
+            }else{
+                $(this).next().removeClass("on")
+
+            }
+        });
+
+        $('body').find('input[type=checkbox]').each(function(i){
+            if($(this).prop('checked')){
+                $(this).next().addClass("on")
+
+            }else{
+                $(this).next().removeClass("on")
+
+            }
+        });})
+</script>
+</body>
+</html>

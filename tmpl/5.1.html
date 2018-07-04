@@ -1,0 +1,120 @@
+
+
+<div ng-controller="questionCtrl">
+    <div id="mask_i"></div>
+    <div class="wrap">
+
+        <div class="con_title">
+            <span class="left">重新开始</span>
+            <span class="right">问诊编号<br>25LBHW</span>
+
+            <div class="que_top" style="">
+                <span class="explain">*</span>每个问题都会影响问诊结果，请仔细阅读问题及各个答案，并根据实际情况慎重选择
+            </div>
+        </div>
+        <div class="main">
+
+            <div class="que_bottom" >
+                <div class="question">
+                    <div >
+                        <img src="image/wen5.png" alt="">{{question}}</div>
+                    <div class="wrap_i clear">
+                        <p style="height: 0.48rem"><span class="close "></span></p>
+                        <span class="content_i">出现这类症状，通常建议拨打120或寻求急诊治疗。如有信息图标，请在选择前阅读该提示信息。</span>
+                    </div>
+                </div>
+                <!-- <div class="text_wrap">
+                     <p><input type="text">周</p>
+                     <p><input type="text">天</p>
+                 </div>-->
+
+                <div class="input_wrap">
+
+                    <div> <input type="checkbox" id="gir11" name="sex">
+                        <!-- <p class="label">--><label for="gir11" class="on">
+                            新出现的意识模糊或无法保持警觉和清醒</label><img src="image/wen5.png" alt=""><!--</p>--></div>
+
+                    <div class="wrap_i clear">
+                        <p style="height: 0.48rem"><span class="close "></span></p>
+                        <span class="content_i">任何的意识模糊或者嗜睡都需要本人的正常状态进行对比。如果您能够理解本行文字中的问题且处于清醒和警觉状态，那么您不太可能出现意识模糊。</span>
+                    </div>
+                </div>
+
+                <div> <input type="checkbox" id="boy1" name="sex">
+                   <label for="boy1">
+                        新出现的气短
+                    </label></div>
+
+                <div>
+                    <input type="checkbox" id="boy" name="sex">
+                    <label for="boy" >
+                    现在或最近癫痫发作
+                </label>
+                </div>
+                <div>
+                    <input type="radio" id="girl" name="sex">
+                    <label for="girl"   >
+                    以上都不是
+                </label>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="btnN clear" >
+            <span class="left"><img src="image/back.png" alt=""></span>
+            <span class="right"><img src="image/cont.png" alt=""></span>
+
+        </div>
+        <div class="advertising">
+            <img src="image/3.png" >
+        </div>
+    </div>
+</div>
+
+<script>
+    //点击单选多选效果
+    $('input:checked').next('label').addClass('on');
+    $(document.body).on('click', function(){
+        $('body').find('input[type=radio]').each(function(i){
+            if($(this).prop('checked')){
+                $(this).next().addClass("on")
+
+            }else{
+                $(this).next().removeClass("on")
+
+            }
+        });
+
+        $('body').find('input[type=checkbox]').each(function(i){
+            if($(this).prop('checked')){
+                $(this).next().addClass("on")
+
+            }else{
+                $(this).next().removeClass("on")
+
+            }
+        });
+        $('input[type=radio]').click(function () {
+            $("input[type=checkbox]").attr("checked",false)
+        })
+        $('input[type=checkbox]').click(function () {
+            $("input[type=radio]").attr("checked",false)
+        })
+
+    });
+    //点击出小i内容
+    $(".que_bottom").click(function (e) {
+        var target=e.target;
+        if(target.tagName=="IMG"){
+            $("#mask_i").show();
+            $(target).parent().next(".wrap_i").show();
+        }
+    })
+
+    $(".close").click(function () {
+        $("#mask_i").hide();
+        $(".wrap_i").hide()
+    })
+</script>

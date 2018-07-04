@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>惠每智能问诊系统</title>
+    <link rel="stylesheet" href="../css/css.css">
+    <script src="../js/public.js"></script>
+</head>
+<body>
+<div id="mask_i"></div>
+<div class="wrap">
+
+    <div class="con_title">
+            <span class="left">重新开始</span>
+            <span class="right">问诊编号<br>25LBHW</span>
+
+            <div class="que_top" style="">
+               <span class="explain">*</span>每个问题都会影响问诊结果，请仔细阅读问题及各个答案，并根据实际情况慎重选择
+            </div>
+    </div>
+    <div class="main">
+
+        <div class="que_bottom" >
+            <div class="question">
+                <div >
+                    您认为自己怀孕多久了？       </div>
+
+            </div>
+
+
+            <div class="text_wrap">
+                <p><input type="text">周</p>
+                <p><input type="text">天</p>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+    <div class="btn clear" >
+                   <span class="left"><img src="../image/back.png" alt=""></span>
+                   <span class="right"><img src="../image/cont.png" alt=""></span>
+
+               </div>
+    <div class="advertising">
+            <img src="../image/3.png" >
+    </div>
+</div>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+    //点击单选多选效果
+    $('input:checked').next('label').addClass('on');
+    $(document.body).on('click', function(){
+        $('body').find('input[type=radio]').each(function(i){
+            if($(this).prop('checked')){
+                $(this).next().addClass("on")
+
+            }else{
+                $(this).next().removeClass("on")
+
+            }
+        });
+
+        $('body').find('input[type=checkbox]').each(function(i){
+            if($(this).prop('checked')){
+                $(this).next().addClass("on")
+
+            }else{
+                $(this).next().removeClass("on")
+
+            }
+        });
+        $('input[type=radio]').click(function () {
+            $("input[type=checkbox]").attr("checked",false)
+        })
+        $('input[type=checkbox]').click(function () {
+            $("input[type=radio]").attr("checked",false)
+        })
+
+    });
+    //点击出小i内容
+    $(".que_bottom").click(function (e) {
+        var target=e.target;
+        console.log(target.tagName)
+        if(target.tagName=="IMG"){
+            console.log(1)
+            $("#mask_i").show();
+            $(target).parent().next(".wrap_i").show();
+        }
+    })
+    //判断空隙
+    /*if($("label").find("img").length==0){
+       $("")
+    }else {
+
+    }*/
+    $(".close").click(function () {
+        $("#mask_i").hide();
+        $(".wrap_i").hide()
+    })
+</script>
+</body>
+</html>

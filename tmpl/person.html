@@ -1,0 +1,62 @@
+
+<section class="content" ng-controller="personCtrl">
+    <div class="main">
+        <h2>填写个人信息</h2>
+        <div class="per_mation">
+            <div class="group">
+                <i></i>
+                <label for="who">参加这次评估的是您本人还是其他人?</label>
+                <select name="who" id="who" ng-model="myOption" ng-options="w.name for w in whos" >
+                    <option value="">请选择</option>
+                   <!-- <option value="" ng-repeat="w in who" data-id="{{w.id}}">{{w.w}}</option>-->
+
+                </select>
+
+            </div>
+            <div class="group">
+                <i></i>
+                <label for="sex">性别</label>
+                <select name="sex" id="sex"  ng-model="mySex" ng-options="s.name for s in sexes" >
+                    <option value="">请选择</option>
+                    <!--<option value="男">男</option>
+                    <option value="女">女</option>-->
+                </select>
+            </div>
+            <div class="group">
+                <span style="color:#a5a5a5">请选择</span>
+                <i></i>
+                <label for="date">出生日期</label>
+                <input type="date" id="date" name="date" width="100%" placeholder="请选择"  ng-model="birth">
+            </div>
+            <div class="group">
+
+                <label for="ID">用户ID</label>
+                <input type="text" id="ID" name="ID" placeholder="请输入">
+            </div>
+        </div>
+    </div>
+    <div class="btn_wrap">
+        <a style="display: block" class="btn" ng-click="outInfor()" href="javascript:;">继续</a>
+       <!-- <p class="btn" ng-click="outInfor()">继续</p>-->
+        <p>返回</p>
+        <p><img src="imgs/back.png" alt="重新测评"><span>重新测评</span></p>
+    </div>
+</section>
+<script>
+  $("#date").focus(function () {
+      $(".group").find("span").hide();
+  })
+  $("#date").blur(function () {
+      if($(this).val()){
+          $(this).parent(".group").find("span").hide();
+      }
+  })
+  $(function () {
+      var value=$("#date").val();
+      if (value){
+          $(this).parent(".group").find("span").hide();
+      }
+  })
+</script>
+</body>
+</html>

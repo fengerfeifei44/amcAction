@@ -1,0 +1,156 @@
+
+<section class="wrap"  id="search_page" ng-controller="selectCtrl">
+    <div class="con_title">
+        <a class="left">重新开始</a>
+
+
+    </div>
+
+    <div class="searchWrap">
+        <div class="search">
+            <p class="sea_one">请输入最困扰患者的症状</p>
+            <div class="tip">请输入症状!</div>
+            <div class="sea_inp clear">
+                <input type="text" placeholder="例如，输入打喷嚏、头痛、皮疹">
+                <a href="javascript:;">搜索</a>
+                <div class="errortext" style="display: none">未找到匹配的症状。请尝试其他关键词.</div>
+
+            </div>
+
+        </div>
+        <div class="list">
+            <a href="javascript:;" class="li" ng-repeat="sym in symList" data-id="{{sym.symptomId}}" ng-click="getQuestion($event)">{{sym.symptomName}}<i  data-id="{{sym.symptomId}}">（{{sym.symptomName}}是一种可影响健康的症状。）</i></a>
+
+        </div>
+        <div class="content">
+            <div class="select">
+                <span class="on">常见症状</span>
+                <!--<span>所有症状</span>-->
+            </div>
+
+            <div class="sym_common sym clear">
+                <a href="javascript:;"  ng-repeat="sym in symList" data-id="{{sym.symptomId}}" ng-click="getQuestion($event)">{{sym.symptomName}}</a>
+               <!-- <a href="">腹痛</a>
+                <a href="">腹泻</a>
+                <a href="">发热</a>
+                <a href="">咳嗽</a>
+                <a href="">便秘</a>
+                <a href="">口腔问题</a>
+                <a href="">感冒症状</a>
+                <a href="">头痛</a>-->
+
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
+
+<script>
+    var $search=$(".search .sea_inp a");
+    var $input=$(".search input");
+    /*function bind() {
+        var str="";
+        str+=' <li>偏头痛<i>（偏头痛是一种可影响健康的症状。）</i></li>\
+           <li>头痛<i>（头痛是一种可影响健康的症状。）</i></li>\
+           <li>头晕<i>（头晕是一种可影响健康的症状。）</i></li>\
+            <li>牙齿痛<i>（牙齿痛是一种可影响健康的症状。）</i></li>'
+        $(".list").html(str);
+    }*/
+    $.extend($.expr[':'], {
+        'containsi': function(elem, i, match, array) {
+            return (elem.textContent || elem.innerText || '').toLowerCase()
+                .indexOf((match[3] || "").toLowerCase()) >= 0;
+        }
+    });
+    function searchSymp() {
+        if($input.val().length>0){
+            $(".list").show()
+           /* bind();*/
+            $("div.list").addClass('on');
+            $(".content").hide();
+            $search.html("取消")
+            //获取所有带关键词的li数组
+            var array= $(".list .li").removeClass('on').filter(':containsi("' + $input.val() + '")').addClass('on');
+            /*for (var i=0;i<array.length;i++){
+                var val=$(".search input").val();
+                var text=array[i].innerHTML;
+                //替换关键字
+                text=text.replace(val,function ($0) {
+                    return "<span class='color'>"+$0+"</span>";
+                })
+                //给li赋带关键字颜色的值
+                array[i].innerHTML=text;
+            }*/
+            //找不到关键字的内容
+            if ($(".list .li.on").size() == 0) {
+                var errortext = $(".search .errortext").text();
+                $('ul.list').append('<a class="on">' + errortext + '</a>')
+            }
+        }else {
+            alert("请输入症状！")
+           /* $(".search .tip").fadeIn();
+            setTimeout(function () {
+                $(".search .tip").fadeOut();
+            },1000)*/
+        }
+    }
+    $search.click(function () {
+        if($(this).html()=="搜索"){
+            searchSymp()
+        }else {
+            $('.list').removeClass("on");
+            $('.list .li').removeClass("on");
+            $(".content").show();
+            $search.html("搜索");
+            $input.val("");
+        }
+
+
+    })
+    /*$('.search input').on("input",function() {
+        if ($(this).val().length > 0) {
+            bind();
+            $("ul.list").addClass('on');
+            $(".content").hide()
+            //获取所有带关键词的li数组
+            var array= $(".list li").removeClass('on').filter(':containsi("' + $(this).val() + '")').addClass('on');
+            for (var i=0;i<array.length;i++){
+                var val=$(this).val();
+                var text=array[i].innerHTML;
+                //替换关键字
+                text=text.replace(val,function ($0) {
+                    return "<span class='color'>"+$0+"</span>";
+                })
+                //给li赋带关键字颜色的值
+                array[i].innerHTML=text;
+            }
+            //找不到关键字的内容
+            if ($(".list li.on").size() == 0) {
+                var errortext = $(".search .errortext").text();
+                $('ul.list').append('<li class="on">' + errortext + '</li>')
+            }
+
+        } else {
+            $(".content").show();
+            $("ul").removeClass('on');
+            $(".list li").removeClass('on');
+
+        }
+    });*/
+  /*  $(".select span").click(function (e) {
+        if($(this).html()=="常见症状"){
+            $(this).addClass("on").siblings().removeClass("on");
+            $(".sym_all").hide();
+            $(".sym_common").show();
+        }else {
+            $(this).addClass("on").siblings().removeClass("on");
+            $(".sym_common").hide();
+            $(".sym_all").show();
+        }
+    })*/
+</script>
+<!--
+</body>
+</html>-->

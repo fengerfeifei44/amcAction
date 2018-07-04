@@ -1,0 +1,129 @@
+
+
+<div ng-controller="questionCtrl">
+    <div id="mask_i"></div>
+    <div class="wrap">
+
+        <div class="con_title">
+            <span class="left">重新开始</span>
+            <span class="right">问诊编号<br>{{abbr}}</span>
+
+            <div class="que_top" style="">
+                <span class="explain">*</span>每个问题都会影响问诊结果，请仔细阅读问题及各个答案，并根据实际情况慎重选择
+            </div>
+        </div>
+        <div class="main">
+
+            <div class="que_bottom" >
+                <div class="quesGroup" ng-repeat="question in questions">
+                    <div class="question" data-id="question.questionId" data-type="question.questionType">
+                        <div >
+                            <img src="image/wen5.png" alt="" ng-if="question.detail">{{question.question}}</div>
+                        <div class="wrap_i clear" ng-if="question.detail">
+                            <p style="height: 0.48rem"  class="close"><span class="close"></span></p>
+                            <span class="content_i">{{question.detail}}</span>
+                        </div>
+                    </div>
+
+                    <div class="input_wrap" ng-repeat="a in question.answers" ng-if="question.questionType==1">
+
+                         <input type="radio" ng-checked="a.checked==1" id="{{a.answerId}}" name="{{question.questionId}}">
+                            <label  ng-class="{on:a.checked==1}" data-id="{{a.answerId}}" ng-click="on($event)" for="{{a.answerId}}">
+                                {{a.answer}}<img ng-if="a.detail" src="image/wen5.png" alt=""></label>
+
+                        <div class="wrap_i clear" ng-if="a.detail">
+                            <p style="height: 0.48rem"  class="close"><span class="close "></span></p>
+                            <span class="content_i">{{a.detail}}</span>
+                        </div>
+                    </div>
+                    <div class="input_wrap" ng-repeat="a in question.answers" ng-if="question.questionType==2">
+
+                        <input ng-checked="a.checked==1" type="{{a.answerId==-1 ? 'radio':'checkbox'}}" id="{{a.answerId}}" name="{{question.questionId}}">
+                            <label data-id="{{a.answerId}}" ng-click="on($event)" ng-class="{on:a.checked==1}"  for="{{a.answerId}}">
+                                {{a.answer}}<img ng-if="a.detail" src="image/wen5.png" alt=""></label>
+
+                        <div class="wrap_i clear" ng-if="a.detail">
+                            <p style="height: 0.48rem"  class="close"><span class="close "></span></p>
+                            <span class="content_i">{{a.detail}}</span>
+                        </div>
+                    </div>
+                    <div class="text_wrap"  ng-if="question.questionType==3">
+                        <p ng-repeat="a in question.answers"><input type="text" ng-model="an">{{a.answer}}</p>
+                       <!-- <p><input type="text" ng-model="answerId">天</p>-->
+                    </div>
+                    <div class="text_wrap" ng-if="question.questionType==4">
+
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="btnN clear" >
+            <span class="left"  ng-click="getNext(-1)"><img src="image/back.png" alt=""></span>
+            <span class="right" ng-click="getNext()"><img src="image/cont.png" alt=""></span>
+
+        </div>
+        <div class="advertising">
+            <img src="image/3.png" >
+        </div>
+    </div>
+</div>
+
+<script>
+    //点击单选多选效果
+    $('input:checked').next('label').addClass('on');
+    console.log($('input:checked').next('label'));
+    $(document.body).on('click', function(){
+        $('body').find('input[type=radio]').each(function(i){
+            if($(this).prop('checked')){
+                $(this).next().addClass("on")
+
+            }else{
+                $(this).next().removeClass("on")
+
+            }
+        });
+
+        $('body').find('input[type=checkbox]').each(function(i){
+            if($(this).prop('checked')){
+                $(this).next().addClass("on")
+
+            }else{
+                $(this).next().removeClass("on")
+
+            }
+        });
+        $('input[type=radio]').click(function () {
+            $("input[type=checkbox]").attr("checked",false)
+        })
+        $('input[type=checkbox]').click(function () {
+            $("input[type=radio]").attr("checked",false)
+        })
+
+    });
+    //点击出小i内容
+    $(".que_bottom").click(function (e) {
+        var target=e.target;
+
+
+        if(target.tagName=="IMG"){
+            e.preventDefault();
+            e.stopPropagation();
+            $("#mask_i").show();
+            $(target).parent().next(".wrap_i").show();
+        }else if($(target).hasClass('close')){
+
+            $("#mask_i").hide();
+            $(".wrap_i").hide()
+        }
+    })
+
+    /*$(".close").click(function () {
+        $("#mask_i").hide();
+        $(".wrap_i").hide()
+    })*/
+</script>

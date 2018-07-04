@@ -1,0 +1,22 @@
+<section style="text-align: center" class="content" ng-controller="indexCtrl">
+    <div class="title">
+        <img src="imgs/index_bg.png" alt="惠每智能问诊系统">
+        <h1>惠每智能问诊系统</h1>
+        <p>值得信赖的医疗指导系统</p>
+    </div>
+    <div class="login">
+        <div class="login_wrap">
+            <p class="error" ng-if="flag">{{message}}</p>
+           <!-- <p ng-class="{true:'error',false:''}[flag]">登录码错误</p>-->
+            <img src="imgs/login.png" alt="登录名">
+            <input type="text" placeholder="输入您的登录码" ng-model="accessCode">
+        </div>
+        <a href="javascript:;" class="btn"  ng-click="login()">登录</a>
+       <!-- <p class="btn " ng-click="login()">登录</p>-->
+    </div>
+    <div class="bottom">
+        <p>本症状诊断工具能帮您找到管理疾病或损伤的最佳方式。</p>
+        <p><img src="imgs/start.png" alt="现在登录开始诊断吧！"></p>
+        <p class="tel120">如果是急症，请拨打120或当地急救电话。</p>
+    </div>
+</section>
